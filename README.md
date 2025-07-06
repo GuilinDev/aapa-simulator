@@ -180,11 +180,6 @@ If you use this code in your research, please cite:
 
 For questions or issues, please open a GitHub issue or contact the authors.
 
-## 🙏 Acknowledgments
-
-- Azure Functions team for the public dataset
-- IEEE HPEC community for valuable feedback
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
