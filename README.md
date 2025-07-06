@@ -5,12 +5,6 @@
 
 This repository contains the implementation of AAPA (Archetype-Aware Predictive Autoscaler), a novel autoscaling system for serverless workloads on Kubernetes that leverages workload classification and uncertainty quantification.
 
-## 📄 Paper
-
-**Archetype-Aware Predictive Autoscaling with Uncertainty Quantification for Serverless Workloads on Kubernetes**
-
-Presented at IEEE HPEC 2025
-
 ## 🎯 Key Features
 
 - **Workload Classification**: Automatically classifies serverless workloads into 4 archetypes (SPIKE, PERIODIC, RAMP, STATIONARY) with 99.8% accuracy
