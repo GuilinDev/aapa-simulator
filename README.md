@@ -11,6 +11,7 @@ This repository contains the implementation of AAPA (Archetype-Aware Predictive 
 - **Weak Supervision**: Uses programmatic labeling functions to automatically label 300K+ time windows
 - **Uncertainty-Aware Scaling**: Incorporates prediction confidence to adjust scaling aggressiveness
 - **Differentiated Strategies**: Applies archetype-specific scaling policies for optimal performance
+- **Public Dataset**: Includes the Kubernetes Serverless Workload Dataset (KSWD) with 10,000+ real-world traces
 
 ## 🚀 Quick Start
 
@@ -88,6 +89,11 @@ aapa-simulator/
 ├── data/                  # Data directory
 │   ├── raw/              # Raw Azure traces
 │   └── processed/        # Processed features
+├── dataset/              # Kubernetes Serverless Workload Dataset (KSWD)
+│   ├── workloads/        # Individual workload traces
+│   ├── archetypes/       # Workload groupings by type
+│   ├── examples/         # Usage examples
+│   └── tools/            # Dataset generation tools
 ├── requirements.txt       # Python dependencies
 ├── LICENSE               # MIT license
 └── README.md            # This file
@@ -152,6 +158,34 @@ simulation:
 | PERIODIC | Regular patterns | Predictive pre-scaling |
 | RAMP | Gradual changes | Trend following |
 | STATIONARY | Stable + noise | Conservative with long cooldowns |
+
+## 📦 Kubernetes Serverless Workload Dataset (KSWD)
+
+This repository includes a comprehensive dataset of real-world serverless workload traces formatted for Kubernetes research:
+
+- **10,000+ workload traces** spanning 14 days each
+- **Archetype labels** with confidence scores
+- **Resource requirements** (CPU/memory) and SLO targets
+- **Ready-to-use format** for Kubernetes HPA configurations
+
+See the [dataset documentation](dataset/README.md) for detailed information and usage examples.
+
+### Quick Dataset Usage
+
+```bash
+# Generate the dataset from Azure traces
+python dataset/tools/azure_to_k8s_converter.py \
+  --azure-path /path/to/azure/data \
+  --output-path dataset/ \
+  --max-workloads 100
+
+# Load and visualize workloads
+python dataset/examples/load_workload.py
+python dataset/examples/visualize_traces.py
+
+# Generate Kubernetes HPA configs
+python dataset/examples/generate_k8s_hpa.py
+```
 
 ## 🤝 Contributing
 
